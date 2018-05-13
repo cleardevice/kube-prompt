@@ -1,0 +1,23 @@
+name: kube-prompt
+version: "v1.0.3"
+summary: An interactive kubernetes client featuring auto-complete using go-prompt.
+description: |
+  An interactive kubernetes client featuring auto-complete using go-prompt.
+  https://github.com/c-bata/kube-prompt
+architectures: [amd64]
+grade: stable
+confinement: strict
+
+parts:
+  kube-prompt:
+    plugin: dump
+    source: https://github.com/c-bata/kube-prompt/releases/download/v1.0.3/kube-prompt_v1.0.3_linux_amd64.zip
+    source-type: zip
+    organize:
+      kube-prompt: bin/kube-prompt
+    prime:
+      - bin/*
+
+apps:
+  kube-prompt:
+    command: kube-prompt
